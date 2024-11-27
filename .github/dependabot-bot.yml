@@ -1,6 +1,0 @@
-safe:
- - psycopg2
- - python-dotenv
- - SQLAlchemy
- - faker
- - pandas

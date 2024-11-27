@@ -16,14 +16,10 @@ jobs:
         os: ["ubuntu-20.04"]
         python_version: ["3.9", "3.10", "3.11", "3.12"]
     services:
-      postgres:
-        image: postgres:11
-        env:
-          POSTGRES_PASSWORD: postgres
+      azurite:
+        image: mcr.microsoft.com/azure-storage/azurite:latest
         ports:
-        - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+          - 10000:10000
     steps:
         - uses: actions/checkout@v3
         - name: Setup python
@@ -35,12 +31,10 @@ jobs:
           run: |
             python3 -m pip install --upgrade pip
             python3 -m pip install -r requirements.txt
-        - name: Run Pytest tests
-          run: | 
-            python3 main_psycopg.py
-            python3 main_sqlalchemy.py
+        - name: Run Python script
           env:
-            DBHOST: localhost
-            DBUSER: postgres
-            DBPASS: postgres
-            DBNAME: postgres
+            AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
+          run: | 
+            python3 main.py > output.txt
+            grep "Blob name: README.md" output.txt
+
