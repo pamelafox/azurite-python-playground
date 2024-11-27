@@ -3,4 +3,4 @@ FROM mcr.microsoft.com/devcontainers/${IMAGE}
 
 ENV PYTHONUNBUFFERED 1
 
-pip install -r requirements.txt
+RUN pip install -r requirements.txt
