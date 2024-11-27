@@ -20,17 +20,7 @@
 			],
 			// Set *default* container specific settings.json values on container create.
 			"settings": {
-				"python.defaultInterpreterPath": "/usr/local/bin/python",
-				"[python]": {
-					"editor.formatOnSave": true,
-					"editor.codeActionsOnSave": {
-						"source.fixAll": "always"
-					},
-					"editor.defaultFormatter": "ms-python.black-formatter"
-				},
-				"files.exclude": {
-					".ruff_cache": true
-				}
+				"python.defaultInterpreterPath": "/usr/local/bin/python"
 			}
 		}
 	},
