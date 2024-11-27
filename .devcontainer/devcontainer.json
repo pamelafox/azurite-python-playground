@@ -6,8 +6,8 @@
 	"workspaceFolder": "/workspace",
 	"forwardPorts": [5432],
 	"portsAttributes": {
-		"10000": {"label": "Azurite Blob Storage Emulator", "onAutoForward": "silent"},
-        "10001": {"label": "Azurite Blob Storage Emulator HTTPS", "onAutoForward": "silent"}
+            "10000": {"label": "Azurite Blob Storage Emulator", "onAutoForward": "silent"},
+            "10001": {"label": "Azurite Blob Storage Emulator HTTPS", "onAutoForward": "silent"}
 	},
 	// Configure tool-specific properties.
 	"customizations": {
