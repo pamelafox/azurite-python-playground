@@ -4,7 +4,7 @@
 	"dockerComposeFile": "docker-compose.yaml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
-	"forwardPorts": [5432],
+	"forwardPorts": [10000, 10001],
 	"portsAttributes": {
             "10000": {"label": "Azurite Blob Storage Emulator", "onAutoForward": "silent"},
             "10001": {"label": "Azurite Blob Storage Emulator HTTPS", "onAutoForward": "silent"}
